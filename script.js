@@ -58,3 +58,22 @@ window.onclick = function (event) {
     closeModal();
   }
 };
+
+// Make Enter act like Tab inside form
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    const formElements = Array.from(document.querySelectorAll("#balanceKES, #rateKESperUSD, #leverage, #entry, #tp, #sl, button"));
+    const index = formElements.indexOf(document.activeElement);
+
+    if (index > -1) {
+      event.preventDefault(); // stop default submit
+      const nextElement = formElements[index + 1];
+      if (nextElement) {
+        nextElement.focus(); // move to next field
+      } else {
+        // If last element (button), trigger calculate
+        calculate();
+      }
+    }
+  }
+});
