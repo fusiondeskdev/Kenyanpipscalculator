@@ -6,10 +6,11 @@ function calculate() {
   const tp = parseFloat(document.getElementById('tp').value);
   const sl = parseFloat(document.getElementById('sl').value);
 
+  const errorDiv = document.getElementById('error-message');
+  errorDiv.innerHTML = ""; // clear old errors
+
   if (isNaN(balanceKES) || isNaN(rateKESperUSD) || isNaN(leverage) || isNaN(entry) || isNaN(tp) || isNaN(sl)) {
-    document.getElementById('output').innerHTML =
-      '<span style="color:#c0392b;">Please fill in all fields correctly.</span>';
-    openModal();
+    errorDiv.innerHTML = "⚠️ Please fill in all fields correctly.";
     return;
   }
 
@@ -44,15 +45,42 @@ function calculate() {
 }
 
 function openModal() {
-  document.getElementById("resultModal").style.display = "flex";
+  const modal = document.getElementById("resultModal");
+  const content = modal.querySelector(".modal-content");
+
+  modal.style.display = "flex";
+
+  // Reset and apply fade-in animation
+  content.style.animation = "none";
+  content.offsetHeight; // trigger reflow
+  content.style.animation = "fadeInModal 0.4s ease forwards";
 }
+
 function closeModal() {
-  document.getElementById("resultModal").style.display = "none";
+  const modal = document.getElementById("resultModal");
+  const content = modal.querySelector(".modal-content");
+
+  // Apply fade-out animation
+  content.style.animation = "fadeOutModal 0.4s ease forwards";
+
+  // Hide after animation ends
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 400);
 }
+
+// Close modal if user clicks outside
 window.onclick = function (event) {
   const modal = document.getElementById("resultModal");
   if (event.target === modal) closeModal();
 };
+
+// Close modal with ESC key
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
 
 // Enter key acts like Tab
 document.addEventListener("keydown", function(event) {
