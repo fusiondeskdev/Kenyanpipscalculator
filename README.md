@@ -1,1 +1,1 @@
-# Kenyanpipscalculator
+# EURUSD pipscalculator in KES
