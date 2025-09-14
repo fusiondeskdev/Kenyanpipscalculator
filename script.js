@@ -5,6 +5,7 @@ function calculate() {
   const entry = parseFloat(document.getElementById('entry').value);
   const tp = parseFloat(document.getElementById('tp').value);
   const sl = parseFloat(document.getElementById('sl').value);
+  const pair = document.getElementById('pair').value; // ✅ currency pair dropdown
 
   const errorDiv = document.getElementById('error-message');
   errorDiv.innerHTML = ""; // clear old errors
@@ -14,8 +15,11 @@ function calculate() {
     return;
   }
 
+  // ✅ Pip size depends on pair
+  let pipSize = 0.0001;
+  if (pair.includes("JPY")) pipSize = 0.01;
+
   const balanceUSD = balanceKES / rateKESperUSD;
-  const pipSize = 0.0001;
   const tpPips = Math.abs(tp - entry) / pipSize;
   const slPips = Math.abs(entry - sl) / pipSize;
 
@@ -32,6 +36,7 @@ function calculate() {
   const rrRatio = (riskUSD > 0) ? (rewardUSD / riskUSD) : 0;
 
   document.getElementById('output').innerHTML = `
+    <div>Currency Pair: <span class="highlight">${pair}</span></div>
     <div>Account Balance: <span class="highlight">${balanceKES.toFixed(2)} KES</span> (${balanceUSD.toFixed(2)} USD)</div>
     <div>Max Lot Size: <span class="highlight">${maxLots.toFixed(2)} lots</span></div>
     <div>TP Distance: <span class="highlight">${tpPips.toFixed(1)} pips</span></div>
@@ -85,7 +90,9 @@ document.addEventListener("keydown", function(event) {
 // Enter key acts like Tab
 document.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
-    const formElements = Array.from(document.querySelectorAll("#balanceKES, #rateKESperUSD, #leverage, #entry, #tp, #sl, button"));
+    const formElements = Array.from(document.querySelectorAll(
+      "#balanceKES, #rateKESperUSD, #leverage, #pair, #entry, #tp, #sl, button"
+    ));
     const index = formElements.indexOf(document.activeElement);
 
     if (index > -1) {
