@@ -1,0 +1,171 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  background: #0077ff;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+/* Ad banners (links styled as blocks) */
+.ad-banner,
+.side-ad,
+.footer-ad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* Sizes & background colors */
+.ad-banner {
+  width: 100%;
+  height: 90px;
+  background: #e0e0e0;
+  margin-bottom: 15px;
+  color: #555;
+}
+.side-ad {
+  width: 160px;
+  height: 600px;
+  background: #eaeaea;
+  margin: 10px;
+  border-radius: 8px;
+  color: #666;
+  flex-shrink: 0;
+}
+.footer-ad {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #dcdcdc;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  color: #444;
+}
+
+/* Hover effect */
+.ad-banner:hover,
+.side-ad:hover,
+.footer-ad:hover {
+  background: #ccc;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Main layout */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+.container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+  margin: 10px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  color: #444;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #005fcc;
+}
+.highlight {
+  font-weight: bold;
+  color: #0077ff;
+}
+
+/* Modal (popup results) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+.close-btn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+.close-btn:hover {
+  color: #0077ff;
+}
+.modal h3 {
+  margin-top: 0;
+  color: #0077ff;
+  text-align: center;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide side ads on mobile */
+@media (max-width: 768px) {
+  .side-ad {
+    display: none;
+  }
+}
