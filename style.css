@@ -1,4 +1,7 @@
 /* Global */
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: 'Poppins', sans-serif;
   background: #05BFDB;
@@ -13,107 +16,76 @@ header {
   padding: 12px;
   text-align: center;
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: clamp(18px, 2vw, 22px);
   font-weight: 600;
 }
 
-/* Ad banners */
-.ad-banner,
-.side-ad,
-.footer-ad {
+/* Layout Wrappers */
+.ad-wrapper,
+.side-ad-wrapper,
+.footer-ad-wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-decoration: none;
-  font-size: 14px;
-  text-align: center;
-  border-radius: 6px;
-}
-.ad-banner {
-  width: 100%;
-  height: 90px;
-  background: #088395;
-  margin-bottom: 15px;
-  color: #FFFFFF;
-  font-weight: 500;
-}
-.side-ad {
-  width: 160px;
-  height: 600px;
-  background: #0A4D68;
-  margin: 10px;
-  border-radius: 8px;
-  color: #FFFFFF;
-  flex-shrink: 0;
-  font-weight: 500;
-}
-.footer-ad {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: #088395;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
-  color: #FFFFFF;
-  font-weight: 600;
-}
-
-/* Hover effect */
-.ad-banner:hover,
-.side-ad:hover,
-.footer-ad:hover {
-  background: #00FFCA;
-  color: #0A4D68;
-  cursor: pointer;
+  align-items: center;
+  margin: 10px auto;
 }
 
 /* Main layout */
 .main-content {
   flex: 1;
+  display: grid;
+  grid-template-columns: 160px 1fr 160px;
+  justify-content: center;
+  align-items: start;
+  padding: 20px;
+  gap: 20px;
+}
+
+.calculator-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  flex-wrap: wrap;
+  align-items: center;
 }
+
+/* Calculator Container */
 .container {
   background: #FFFFFF;
-  padding: 25px;
+  padding: 30px; /* equal padding all around */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 450px;
-  margin: 10px;
+  width: clamp(280px, 90vw, 450px);
   border: 1px solid #0A4D68;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* consistent spacing */
 }
+
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0 0 10px;
   color: #0A4D68;
   font-weight: 600;
 }
+
 label {
   font-weight: 500;
-  display: block;
-  margin-top: 10px;
   color: #088395;
+  margin: 0;
 }
+
 input {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 12px;
   border: 1px solid #05BFDB;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   background: #F9F9F9;
   font-family: 'Poppins', sans-serif;
 }
+
 button {
-  margin-top: 20px;
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: none;
   background: #0A4D68;
   color: #FFFFFF;
@@ -122,10 +94,12 @@ button {
   cursor: pointer;
   transition: 0.3s;
   font-weight: 600;
+  margin-top: 10px;
 }
 button:hover {
   background: #088395;
 }
+
 .highlight {
   font-weight: 600;
   color: #00FFCA;
@@ -143,13 +117,13 @@ button:hover {
   background: rgba(10,77,104,0.6);
   justify-content: center;
   align-items: center;
+  padding: 15px;
 }
 .modal-content {
   background: #FFFFFF;
   padding: 25px;
   border-radius: 12px;
-  width: 90%;
-  max-width: 450px;
+  width: clamp(280px, 90vw, 500px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: fadeIn 0.3s ease-in-out;
   border: 1px solid #088395;
@@ -208,9 +182,23 @@ button:hover {
   font-weight: 400;
 }
 
-/* Hide side ads on mobile */
-@media (max-width: 768px) {
-  .side-ad {
+/* Responsive Fixes */
+@media (max-width: 992px) {
+  .main-content {
+    grid-template-columns: 1fr; /* stack */
+  }
+  .side-ad-wrapper {
     display: none;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    font-size: 18px;
+  }
+  .container {
+    padding: 20px; /* slight reduction on very small screens */
+  }
+  button {
+    font-size: 15px;
   }
 }

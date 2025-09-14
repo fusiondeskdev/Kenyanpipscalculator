@@ -7,53 +7,90 @@
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for social icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google AdSense -->
+  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 </head>
+
 <body>
   <header>
     FusionDesk Pip Calculator
   </header>
 
   <!-- Top Banner Ad -->
-  <a href="#" target="_blank" class="ad-banner">Ad Banner (728x90)</a>
+  <div class="ad-wrapper">
+    <amp-ad width="100vw" height="320"
+      type="adsense"
+      data-ad-client="ca-pub-2425308801248649"
+      data-ad-slot="6050346831"
+      data-auto-format="rspv"
+      data-full-width="">
+      <div overflow=""></div>
+    </amp-ad>
+  </div>
 
   <div class="main-content">
     <!-- Left Side Ad -->
-    <a href="#" target="_blank" class="side-ad">Side Ad (160x600)</a>
+    <div class="side-ad-wrapper">
+      <amp-ad width="160" height="600"
+        type="adsense"
+        data-ad-client="ca-pub-2425308801248649"
+        data-ad-slot="9798020151">
+        <div overflow=""></div>
+      </amp-ad>
+    </div>
 
     <!-- Calculator -->
-    <div class="container">
-      <h2>Calculator</h2>
-      <label for="balanceKES">Account Balance (KES)</label>
-      <input type="number" id="balanceKES" placeholder="e.g. 10000">
+    <div class="calculator-wrapper">
+      <div class="container">
+        <h2>Calculator</h2>
+        <label for="balanceKES">Account Balance (KES)</label>
+        <input type="number" id="balanceKES" placeholder="e.g. 10000">
 
-      <label for="rateKESperUSD">Exchange Rate (KES per 1 USD)</label>
-      <input type="number" id="rateKESperUSD" placeholder="e.g. 133">
+        <label for="rateKESperUSD">Exchange Rate (KES per 1 USD)</label>
+        <input type="number" id="rateKESperUSD" placeholder="e.g. 133">
 
-      <label for="leverage">Leverage (e.g. 400 for 1:400)</label>
-      <input type="number" id="leverage" placeholder="e.g. 400">
+        <label for="leverage">Leverage (e.g. 400 for 1:400)</label>
+        <input type="number" id="leverage" placeholder="e.g. 400">
 
-      <label for="entry">Entry Price</label>
-      <input type="number" id="entry" step="0.0001" placeholder="e.g. 1.1000">
+        <label for="entry">Entry Price</label>
+        <input type="number" id="entry" step="0.0001" placeholder="e.g. 1.1000">
 
-      <label for="tp">Take Profit Price</label>
-      <input type="number" id="tp" step="0.0001" placeholder="e.g. 1.1200">
+        <label for="tp">Take Profit Price</label>
+        <input type="number" id="tp" step="0.0001" placeholder="e.g. 1.1200">
 
-      <label for="sl">Stop Loss Price</label>
-      <input type="number" id="sl" step="0.0001" placeholder="e.g. 1.0900">
+        <label for="sl">Stop Loss Price</label>
+        <input type="number" id="sl" step="0.0001" placeholder="e.g. 1.0900">
 
-      <button onclick="calculate()">Calculate</button>
+        <button onclick="calculate()">Calculate</button>
+      </div>
     </div>
 
     <!-- Right Side Ad -->
-    <a href="#" target="_blank" class="side-ad">Side Ad (160x600)</a>
+    <div class="side-ad-wrapper">
+      <amp-ad width="160" height="600"
+        type="adsense"
+        data-ad-client="ca-pub-2425308801248649"
+        data-ad-slot="7667499074">
+        <div overflow=""></div>
+      </amp-ad>
+    </div>
   </div>
 
   <!-- Sticky Footer Ad -->
-  <a href="#" target="_blank" class="footer-ad">Sticky Footer Ad (320x60)</a>
+  <div class="footer-ad-wrapper">
+    <amp-ad width="100vw" height="90"
+      type="adsense"
+      data-ad-client="ca-pub-2425308801248649"
+      data-ad-slot="3232611800"
+      data-auto-format="rspv"
+      data-full-width="">
+      <div overflow=""></div>
+    </amp-ad>
+  </div>
 
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-links">
       <div class="social">
@@ -70,7 +107,7 @@
     <p class="copyright">&copy; 2025 FusionDesk Solutions. All Rights Reserved.</p>
   </footer>
 
-  <!-- Results Popup Modal -->
+  <!-- Results Modal -->
   <div id="resultModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
