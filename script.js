@@ -8,7 +8,7 @@ function calculate() {
 
   if (isNaN(balanceKES) || isNaN(rateKESperUSD) || isNaN(leverage) || isNaN(entry) || isNaN(tp) || isNaN(sl)) {
     document.getElementById('output').innerHTML =
-      '<span style="color:red;">Please fill in all fields correctly.</span>';
+      '<span style="color:#FF4444;">Please fill in all fields correctly.</span>';
     openModal();
     return;
   }
@@ -51,8 +51,8 @@ function closeModal() {
   document.getElementById("resultModal").style.display = "none";
 }
 
-// Close modal if user clicks outside of content
-window.onclick = function(event) {
+// Close modal if user clicks outside
+window.onclick = function (event) {
   const modal = document.getElementById("resultModal");
   if (event.target === modal) {
     closeModal();

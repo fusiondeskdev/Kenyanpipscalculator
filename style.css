@@ -1,20 +1,23 @@
+/* Global */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
+  font-family: 'Poppins', sans-serif;
+  background: #05BFDB;
   margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  color: #0A4D68;
 }
 header {
-  background: #0077ff;
-  padding: 10px;
+  background: #0A4D68;
+  padding: 12px;
   text-align: center;
-  color: white;
-  font-size: 18px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-/* Ad banners (links styled as blocks) */
+/* Ad banners */
 .ad-banner,
 .side-ad,
 .footer-ad {
@@ -23,26 +26,26 @@ header {
   justify-content: center;
   text-decoration: none;
   font-size: 14px;
-  font-weight: normal;
   text-align: center;
+  border-radius: 6px;
 }
-
-/* Sizes & background colors */
 .ad-banner {
   width: 100%;
   height: 90px;
-  background: #e0e0e0;
+  background: #088395;
   margin-bottom: 15px;
-  color: #555;
+  color: #FFFFFF;
+  font-weight: 500;
 }
 .side-ad {
   width: 160px;
   height: 600px;
-  background: #eaeaea;
+  background: #0A4D68;
   margin: 10px;
   border-radius: 8px;
-  color: #666;
+  color: #FFFFFF;
   flex-shrink: 0;
+  font-weight: 500;
 }
 .footer-ad {
   position: fixed;
@@ -50,18 +53,19 @@ header {
   left: 0;
   width: 100%;
   height: 60px;
-  background: #dcdcdc;
+  background: #088395;
   box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
   z-index: 1000;
-  color: #444;
+  color: #FFFFFF;
+  font-weight: 600;
 }
 
 /* Hover effect */
 .ad-banner:hover,
 .side-ad:hover,
 .footer-ad:hover {
-  background: #ccc;
-  color: #000;
+  background: #00FFCA;
+  color: #0A4D68;
   cursor: pointer;
 }
 
@@ -75,54 +79,59 @@ header {
   flex-wrap: wrap;
 }
 .container {
-  background: #fff;
+  background: #FFFFFF;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 450px;
   margin: 10px;
+  border: 1px solid #0A4D68;
 }
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #0A4D68;
+  font-weight: 600;
 }
 label {
-  font-weight: bold;
+  font-weight: 500;
   display: block;
   margin-top: 10px;
-  color: #444;
+  color: #088395;
 }
 input {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #05BFDB;
   border-radius: 8px;
   font-size: 14px;
+  background: #F9F9F9;
+  font-family: 'Poppins', sans-serif;
 }
 button {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
   border: none;
-  background: #0077ff;
-  color: #fff;
+  background: #0A4D68;
+  color: #FFFFFF;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
+  font-weight: 600;
 }
 button:hover {
-  background: #005fcc;
+  background: #088395;
 }
 .highlight {
-  font-weight: bold;
-  color: #0077ff;
+  font-weight: 600;
+  color: #00FFCA;
 }
 
-/* Modal (popup results) */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -131,36 +140,72 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(10,77,104,0.6);
   justify-content: center;
   align-items: center;
 }
 .modal-content {
-  background: #fff;
+  background: #FFFFFF;
   padding: 25px;
   border-radius: 12px;
   width: 90%;
   max-width: 450px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   animation: fadeIn 0.3s ease-in-out;
+  border: 1px solid #088395;
 }
 .close-btn {
   float: right;
   font-size: 22px;
   cursor: pointer;
-  color: #333;
+  color: #0A4D68;
 }
 .close-btn:hover {
-  color: #0077ff;
+  color: #088395;
 }
 .modal h3 {
   margin-top: 0;
-  color: #0077ff;
+  color: #0A4D68;
   text-align: center;
+  font-weight: 600;
 }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+.site-footer {
+  background: #088395;
+  color: #FFFFFF;
+  padding: 30px 20px 90px;
+  text-align: center;
+  margin-top: 60px;
+  border-top: 4px solid #00FFCA;
+}
+.site-footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 15px;
+}
+.site-footer .social a,
+.site-footer .affiliate a {
+  color: #FFFFFF;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+.site-footer .social a:hover,
+.site-footer .affiliate a:hover {
+  color: #00FFCA;
+}
+.site-footer .copyright {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 400;
 }
 
 /* Hide side ads on mobile */
